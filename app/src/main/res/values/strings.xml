@@ -8,4 +8,16 @@
     <string name="lat_long_snippet">Lat: %1$.5f, Long: %2$.5f</string>
     <string name="dropped_pin">Dropped Pin</string>
     <string name="poi">poi</string>
+    <string name="welcome_to_the_location_reminder_app">Welcome to the location reminder app</string>
+    <string name="login_btn">Login</string>
+    <string name="sign_in_successfully">Sign in successfully</string>
+    <string name="sign_in_unsuccessful">Sign in unsuccessful</string>
+    <string name="reminder_saved">Reminder saved</string>
+    <string name="err_enter_title">Error enter title</string>
+    <string name="err_select_location">Error select location</string>
+    <string name="logout">Logout</string>
+    <string name="no_data">No data</string>
+    <string name="reminder_title">Reminder title</string>
+    <string name="reminder_desc">Reminder desc</string>
+    <string name="reminder_location">Reminder location</string>
 </resources>

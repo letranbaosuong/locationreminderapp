@@ -1,0 +1,163 @@
+{
+  "project_info": {
+    "project_number": "835713607641",
+    "firebase_url": "https://appdemo-718c3.firebaseio.com",
+    "project_id": "appdemo-718c3",
+    "storage_bucket": "appdemo-718c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835713607641:android:4ddad2638a44d39e429bc8",
+        "android_client_info": {
+          "package_name": "com.example.su_mock_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835713607641-p2g7gpiv8hnfpgk20q2u89soijvml4g7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Rx-Uw0toVbPuo4qp0Z2nQ4JLYQlYBWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835713607641-p2g7gpiv8hnfpgk20q2u89soijvml4g7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "835713607641-0kblhq8qvcmoe0rc1cdad3vupg0jc3tk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.letranbaosuong.movieTrailersWatchTrailersAndMoreDetails"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835713607641:android:4288820a68f1ccc4429bc8",
+        "android_client_info": {
+          "package_name": "com.example.su_netflix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835713607641-p2g7gpiv8hnfpgk20q2u89soijvml4g7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Rx-Uw0toVbPuo4qp0Z2nQ4JLYQlYBWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835713607641-p2g7gpiv8hnfpgk20q2u89soijvml4g7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "835713607641-0kblhq8qvcmoe0rc1cdad3vupg0jc3tk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.letranbaosuong.movieTrailersWatchTrailersAndMoreDetails"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835713607641:android:8c508d442ce3f927429bc8",
+        "android_client_info": {
+          "package_name": "com.letranbaosuong.locationreminderapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835713607641-8a9r5r6qg0tlgjlbr6ad0485q9epsvmf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.letranbaosuong.locationreminderapp",
+            "certificate_hash": "ab64ee5e8d7efd1f64d49bbf0ea9688e533a73c9"
+          }
+        },
+        {
+          "client_id": "835713607641-p2g7gpiv8hnfpgk20q2u89soijvml4g7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Rx-Uw0toVbPuo4qp0Z2nQ4JLYQlYBWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835713607641-p2g7gpiv8hnfpgk20q2u89soijvml4g7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "835713607641-0kblhq8qvcmoe0rc1cdad3vupg0jc3tk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.letranbaosuong.movieTrailersWatchTrailersAndMoreDetails"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835713607641:android:ed3861d9be9a1056429bc8",
+        "android_client_info": {
+          "package_name": "com.letranbaosuong.movieTrailersWatchTrailersAndMoreDetails"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835713607641-p2g7gpiv8hnfpgk20q2u89soijvml4g7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Rx-Uw0toVbPuo4qp0Z2nQ4JLYQlYBWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835713607641-p2g7gpiv8hnfpgk20q2u89soijvml4g7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "835713607641-0kblhq8qvcmoe0rc1cdad3vupg0jc3tk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.letranbaosuong.movieTrailersWatchTrailersAndMoreDetails"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
