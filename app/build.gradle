@@ -45,9 +45,6 @@ android {
     dataBinding {
         enabled = true
     }
-//    packagingOptions {
-//        exclude "META-INF/*"
-//    }
     buildFeatures {
         buildConfig = true
     }

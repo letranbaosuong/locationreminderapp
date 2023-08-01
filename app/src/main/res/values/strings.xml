@@ -20,4 +20,6 @@
     <string name="reminder_title">Reminder title</string>
     <string name="reminder_desc">Reminder desc</string>
     <string name="reminder_location">Reminder location</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
