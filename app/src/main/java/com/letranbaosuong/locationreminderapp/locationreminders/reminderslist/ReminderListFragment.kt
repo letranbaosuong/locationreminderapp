@@ -1,5 +1,6 @@
 package com.letranbaosuong.locationreminderapp.locationreminders.reminderslist
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -8,10 +9,14 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.firebase.ui.auth.AuthUI
+import com.google.android.material.snackbar.Snackbar
 import com.letranbaosuong.locationreminderapp.R
+import com.letranbaosuong.locationreminderapp.authentication.AuthenticationActivity
 import com.letranbaosuong.locationreminderapp.base.BaseFragment
 import com.letranbaosuong.locationreminderapp.base.NavigationCommand
 import com.letranbaosuong.locationreminderapp.databinding.FragmentRemindersBinding
+import com.letranbaosuong.locationreminderapp.locationreminders.ReminderDescriptionActivity
 import com.letranbaosuong.locationreminderapp.utils.setDisplayHomeAsUpEnabled
 import com.letranbaosuong.locationreminderapp.utils.setTitle
 import com.letranbaosuong.locationreminderapp.utils.setup
@@ -64,7 +69,12 @@ class ReminderListFragment : BaseFragment() {
     }
 
     private fun setupRecyclerView() {
-        val adapter = RemindersListAdapter {}
+        val adapter = RemindersListAdapter {
+            // Navigate to the details fragment when the reminder item is clicked
+            startActivity(
+                ReminderDescriptionActivity.newIntent(requireContext(), it)
+            )
+        }
         // Setup the recycler view using the extension function
         binding.reminderssRecyclerView.setup(adapter)
     }
@@ -72,7 +82,22 @@ class ReminderListFragment : BaseFragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout -> {
-                // TODO: add the logout implementation
+                AuthUI.getInstance().signOut(requireContext())
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            val activity = requireActivity()
+                            val intent =
+                                Intent(requireContext(), AuthenticationActivity::class.java)
+                            activity.startActivity(intent)
+                            activity.finish()
+                        } else {
+                            Snackbar.make(
+                                requireView(),
+                                getString(R.string.logout_unsuccessful),
+                                Snackbar.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
             }
         }
         return super.onOptionsItemSelected(item)

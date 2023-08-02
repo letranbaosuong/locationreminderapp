@@ -3,6 +3,7 @@ package com.letranbaosuong.locationreminderapp.locationreminders
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.letranbaosuong.locationreminderapp.R
@@ -32,5 +33,18 @@ class ReminderDescriptionActivity : AppCompatActivity() {
         val layoutId = R.layout.activity_reminder_description
         binding = DataBindingUtil.setContentView(this, layoutId)
         // TODO: Add the implementation of the reminder details
+        binding.reminderDataItem =
+            intent.getSerializableExtra(EXTRA_ReminderDataItem) as ReminderDataItem
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        android.R.id.home -> {
+            finish()
+            true
+        }
+
+        else -> super.onOptionsItemSelected(item)
     }
 }

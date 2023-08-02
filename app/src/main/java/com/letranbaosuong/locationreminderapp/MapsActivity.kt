@@ -22,7 +22,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.letranbaosuong.locationreminderapp.databinding.ActivityMapsBinding
 import java.util.Locale
 
-
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private val REQUEST_LOCATION_PERMISSION = 1
@@ -69,7 +68,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(R.id.mapActivity) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 

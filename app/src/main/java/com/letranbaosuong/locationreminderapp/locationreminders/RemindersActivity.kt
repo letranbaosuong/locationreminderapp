@@ -5,6 +5,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.letranbaosuong.locationreminderapp.databinding.ActivityRemindersBinding
+import com.letranbaosuong.locationreminderapp.utils.setDisplayHomeAsUpEnabled
 
 /**
  * The RemindersActivity that holds the reminders fragments
@@ -16,6 +17,7 @@ class RemindersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRemindersBinding.inflate(layoutInflater)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setContentView(binding.root)
     }
 

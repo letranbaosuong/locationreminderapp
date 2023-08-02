@@ -22,4 +22,8 @@
     <string name="reminder_location">Reminder location</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="location_required_error">Location services must be enabled to use the app</string>
+    <string name="geofences_added">Geofences has been added.</string>
+    <string name="geofences_not_added">Problem in adding geofences.</string>
+    <string name="logout_unsuccessful">Logout unsuccessfully</string>
 </resources>
