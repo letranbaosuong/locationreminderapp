@@ -26,4 +26,5 @@
     <string name="geofences_added">Geofences has been added.</string>
     <string name="geofences_not_added">Problem in adding geofences.</string>
     <string name="logout_unsuccessful">Logout unsuccessfully</string>
+    <string name="save">Save</string>
 </resources>

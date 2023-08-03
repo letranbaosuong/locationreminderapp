@@ -28,6 +28,7 @@ import com.letranbaosuong.locationreminderapp.base.NavigationCommand
 import com.letranbaosuong.locationreminderapp.databinding.FragmentSaveReminderBinding
 import com.letranbaosuong.locationreminderapp.locationreminders.geofence.GeofenceBroadcastReceiver
 import com.letranbaosuong.locationreminderapp.locationreminders.reminderslist.ReminderDataItem
+import com.letranbaosuong.locationreminderapp.utils.sendNotification
 import com.letranbaosuong.locationreminderapp.utils.setDisplayHomeAsUpEnabled
 import org.koin.android.ext.android.inject
 import timber.log.Timber
@@ -78,7 +79,6 @@ class SaveReminderFragment : BaseFragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.Q)
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
@@ -245,6 +245,9 @@ class SaveReminderFragment : BaseFragment() {
                         )
                             .show()
                         _viewModel.validateAndSaveReminder(reminder)
+                        if (_viewModel.validateEnteredData(reminder)) {
+                            sendNotification(requireContext(), reminder)
+                        }
                     }
                     addOnFailureListener {
                         Snackbar.make(

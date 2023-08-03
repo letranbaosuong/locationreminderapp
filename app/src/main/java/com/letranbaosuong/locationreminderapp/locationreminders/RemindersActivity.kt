@@ -3,9 +3,8 @@ package com.letranbaosuong.locationreminderapp.locationreminders
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.findNavController
 import com.letranbaosuong.locationreminderapp.databinding.ActivityRemindersBinding
-import com.letranbaosuong.locationreminderapp.utils.setDisplayHomeAsUpEnabled
 
 /**
  * The RemindersActivity that holds the reminders fragments
@@ -24,7 +23,7 @@ class RemindersActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                (binding.navHostFragment as NavHostFragment).navController.popBackStack()
+                binding.navHostFragment.findNavController().popBackStack()
                 return true
             }
         }

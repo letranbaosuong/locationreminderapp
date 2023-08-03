@@ -80,7 +80,7 @@ class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSo
         return true
     }
 
-    fun updatePoint(pointOfInterest: PointOfInterest) {
+    fun savePoint(pointOfInterest: PointOfInterest) {
         selectedPOI.value = pointOfInterest
         reminderSelectedLocationStr.value = pointOfInterest.name
         selectedPOI.value = pointOfInterest
