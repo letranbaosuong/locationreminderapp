@@ -49,33 +49,33 @@ class ReminderListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
-        setupRecyclerView()
+        initRecyclerView()
         binding.addReminderFAB.setOnClickListener {
-            navigateToAddReminder()
+            addReminder()
         }
     }
 
     override fun onResume() {
         super.onResume()
-        // Load the reminders list on the ui
+        // Load reminders
         _viewModel.loadReminders()
     }
 
-    private fun navigateToAddReminder() {
-        // Use the navigationCommand live data to navigate between the fragments
+    private fun addReminder() {
+        // Use NavigationCommand to navigate between the fragments
         _viewModel.navigationCommand.postValue(
             NavigationCommand.To(ReminderListFragmentDirections.toSaveReminder())
         )
     }
 
-    private fun setupRecyclerView() {
+    private fun initRecyclerView() {
         val adapter = RemindersListAdapter {
-            // Navigate to the details fragment when the reminder item is clicked
+            // Navigate to the details reminder
             startActivity(
                 ReminderDescriptionActivity.newIntent(requireContext(), it)
             )
         }
-        // Setup the recycler view using the extension function
+        // Setup recycler view
         binding.reminderssRecyclerView.setup(adapter)
     }
 

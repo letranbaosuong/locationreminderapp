@@ -109,25 +109,26 @@ class SaveReminderFragment : BaseFragment() {
                 latitude,
                 longitude
             )
-            if (_viewModel.validateEnteredData(reminderDataItem)) {
+            if (_viewModel.validateInputData(reminderDataItem)) {
                 this.reminderDataItem = reminderDataItem
-                checkPermissionsAndStartGeofencing()
+                checkLocationPermissionAndStartGeofence()
             }
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.Q)
-    private fun checkPermissionsAndStartGeofencing() {
-        if (foregroundAndBackgroundLocationPermissionApproved()) {
-            checkDeviceLocationSettingsAndStartGeofence()
+    private fun checkLocationPermissionAndStartGeofence() {
+        if (isLocationPermissionApproved()) {
+            startGeofence()
         } else {
-            requestForegroundAndBackgroundLocationPermissions()
+            requestLocationPermissions()
         }
     }
 
+    // Check Foreground And Background
     @RequiresApi(Build.VERSION_CODES.Q)
-    private fun foregroundAndBackgroundLocationPermissionApproved(): Boolean {
-        //Check permission fine location and coarse location
+    private fun isLocationPermissionApproved(): Boolean {
+        // Check permission
         val foregroundLocationApproved =
             (PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(
                 requireContext(), Manifest.permission.ACCESS_FINE_LOCATION
@@ -146,7 +147,8 @@ class SaveReminderFragment : BaseFragment() {
         return foregroundLocationApproved && backgroundPermissionApproved
     }
 
-    private fun checkDeviceLocationSettingsAndStartGeofence(resolve: Boolean = true) {
+    // Request Check Device Location Settings
+    private fun startGeofence(resolve: Boolean = true) {
         val locationRequest = LocationRequest.create().apply {
             priority = LocationRequest.PRIORITY_LOW_POWER
         }
@@ -162,27 +164,28 @@ class SaveReminderFragment : BaseFragment() {
                         REQUEST_TURN_DEVICE_LOCATION_ON
                     )
                 } catch (sendEx: IntentSender.SendIntentException) {
-                    Timber.e("Error getting location settings resolution: %s", sendEx.message)
+                    Timber.e("Error startGeofence: %s", sendEx.message)
                 }
             } else {
                 Snackbar.make(
                     requireActivity().findViewById(android.R.id.content),
                     R.string.location_required_error, Snackbar.LENGTH_INDEFINITE
                 ).setAction(android.R.string.ok) {
-                    checkDeviceLocationSettingsAndStartGeofence()
+                    startGeofence()
                 }.show()
             }
         }
         locationSettingsResponseTask.addOnCompleteListener {
             if (it.isSuccessful) {
-                addGeofenceForClue()
+                addGeofence()
             }
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.Q)
-    private fun requestForegroundAndBackgroundLocationPermissions() {
-        if (foregroundAndBackgroundLocationPermissionApproved()) return
+    // Foreground And Background
+    private fun requestLocationPermissions() {
+        if (isLocationPermissionApproved()) return
         var permissionsArray = arrayOf(
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION
@@ -201,7 +204,7 @@ class SaveReminderFragment : BaseFragment() {
         )
     }
 
-    private fun addGeofenceForClue() {
+    private fun addGeofence() {
         val reminder = reminderDataItem ?: return
 
         val geofence = Geofence.Builder()
@@ -244,8 +247,8 @@ class SaveReminderFragment : BaseFragment() {
                             Toast.LENGTH_SHORT
                         )
                             .show()
-                        _viewModel.validateAndSaveReminder(reminder)
-                        if (_viewModel.validateEnteredData(reminder)) {
+                        _viewModel.checkValidateSaveReminder(reminder)
+                        if (_viewModel.validateInputData(reminder)) {
                             sendNotification(requireContext(), reminder)
                         }
                     }
