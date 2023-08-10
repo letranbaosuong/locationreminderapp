@@ -17,7 +17,7 @@
         <!-- TODO: Add the map fragment for the user to select the location -->
         <fragment
             android:id="@+id/mapSelectLocation"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
+            class="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".MapsActivity" />

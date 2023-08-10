@@ -1,5 +1,7 @@
 <resources>
     <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.Material3.DayNight" />
+
     <style name="Base.Theme.LocationReminderApp" parent="Theme.Material3.DayNight">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->

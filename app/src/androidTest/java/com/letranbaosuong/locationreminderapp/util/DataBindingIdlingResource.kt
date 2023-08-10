@@ -15,14 +15,17 @@
  */
 package com.letranbaosuong.locationreminderapp.util
 
+import android.os.Bundle
+import com.letranbaosuong.locationreminderapp.R
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.testing.FragmentScenario
+import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.IdlingResource
+import com.letranbaosuong.locationreminderapp.locationreminders.reminderslist.ReminderListFragment
 import java.util.UUID
 
 /**
@@ -35,9 +38,11 @@ import java.util.UUID
 class DataBindingIdlingResource : IdlingResource {
     // list of registered callbacks
     private val idlingCallbacks = mutableListOf<IdlingResource.ResourceCallback>()
+
     // give it a unique id to workaround an espresso bug where you cannot register/unregister
     // an idling resource w/ the same name.
     private val id = UUID.randomUUID().toString()
+
     // holds whether isIdle is called and the result was false. We track this to avoid calling
     // onTransitionToIdle callbacks if Espresso never thought we were idle in the first place.
     private var wasNotIdle = false
@@ -108,4 +113,12 @@ fun DataBindingIdlingResource.monitorActivity(
 //    fragmentScenario.onFragment {
 //        this.activity = it.requireActivity()
 //    }
+//}
+//fun DataBindingIdlingResource.monitorReminderListFragment(): FragmentScenario<ReminderListFragment> {
+//    val fragmentScenario = FragmentScenario.launch(ReminderListFragment::class.java)
+//    launchFragmentInContainer<ReminderListFragment>(Bundle(), R.style.AppTheme)
+//    fragmentScenario.onFragment { fragment ->
+//        this.activity = fragment.requireActivity()
+//    }
+//    return fragmentScenario
 //}

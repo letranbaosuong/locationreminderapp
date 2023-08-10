@@ -8,7 +8,6 @@ import com.letranbaosuong.locationreminderapp.locationreminders.data.dto.Result
 @Suppress("UNREACHABLE_CODE")
 class FakeDataSource : ReminderDataSource {
 
-
     //    TODO: Create a fake data source to act as a double to the real data source
     val reminders = mutableListOf<ReminderDTO>()
     var isError = false
@@ -21,17 +20,17 @@ class FakeDataSource : ReminderDataSource {
     }
 
     override suspend fun getReminders(): Result<List<ReminderDTO>> {
-        TODO("Return the reminders")
+//        TODO("Return the reminders")
         return if (isError) Result.Error(errorMsg) else Result.Success(reminders)
     }
 
     override suspend fun saveReminder(reminder: ReminderDTO) {
-        TODO("save the reminder")
+//        TODO("save the reminder")
         reminders.add(reminder)
     }
 
     override suspend fun getReminder(id: String): Result<ReminderDTO> {
-        TODO("return the reminder with the id")
+//        TODO("return the reminder with the id")
         return if (isError) {
             Result.Error(errorMsg)
         } else {
@@ -46,7 +45,7 @@ class FakeDataSource : ReminderDataSource {
     }
 
     override suspend fun deleteAllReminders() {
-        TODO("delete all the reminders")
+//        TODO("delete all the reminders")
         reminders.clear()
     }
 }
