@@ -76,7 +76,7 @@ class ReminderListFragment : BaseFragment() {
             )
         }
         // Setup recycler view
-        binding.reminderssRecyclerView.setup(adapter)
+        binding.remindersRecyclerView.setup(adapter)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
