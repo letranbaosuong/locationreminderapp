@@ -63,17 +63,17 @@ android {
         }
         // Other source sets
     }
-//    testOptions.unitTests {
-//        includeAndroidResources = true
-//        returnDefaultValues = true
-//    }
-    testOptions {
-        unitTests.all {
-            // Use JUnit instead of AndroidJUnitRunner
-            testInstrumentationRunner "junit.runner.JUnitRunner"
-            testInstrumentationRunner "org.robolectric.RobolectricTestRunner"
-        }
+    testOptions.unitTests {
+        includeAndroidResources = true
+        returnDefaultValues = true
     }
+//    testOptions {
+//        unitTests.all {
+//            // Use JUnit instead of AndroidJUnitRunner
+//            testInstrumentationRunner "junit.runner.JUnitRunner"
+//            testInstrumentationRunner "org.robolectric.RobolectricTestRunner"
+//        }
+//    }
 }
 
 kapt {

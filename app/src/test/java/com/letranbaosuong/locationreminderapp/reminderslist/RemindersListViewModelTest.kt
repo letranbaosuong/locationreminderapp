@@ -12,15 +12,17 @@ import kotlinx.coroutines.test.TestCoroutineScheduler
 import kotlinx.coroutines.test.pauseDispatcher
 import kotlinx.coroutines.test.resumeDispatcher
 import kotlinx.coroutines.test.runTest
-import org.hamcrest.CoreMatchers.*
-import org.hamcrest.MatcherAssert
+import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.koin.core.context.GlobalContext.stopKoin
+import org.koin.core.context.stopKoin
+import org.robolectric.annotation.Config
 
+@Config(sdk = [29])
 @RunWith(AndroidJUnit4::class)
 @ExperimentalCoroutinesApi
 class RemindersListViewModelTest {
@@ -56,9 +58,7 @@ class RemindersListViewModelTest {
         reminderFakeDataSource.setShouldReturnError(true)
         saveReminder()
         remindersListViewModel.loadReminders()
-        MatcherAssert.assertThat(
-            remindersListViewModel.showSnackBar.value, `is`("Test Error Message")
-        )
+        assertThat(remindersListViewModel.showSnackBar.value, `is`("Test Error Message"))
     }
 
     @Test
@@ -66,9 +66,9 @@ class RemindersListViewModelTest {
         appMainCoroutineRule.pauseDispatcher()
         saveReminder()
         remindersListViewModel.loadReminders()
-        MatcherAssert.assertThat(remindersListViewModel.showLoading.value, `is`(true))
+        assertThat(remindersListViewModel.showLoading.value, `is`(true))
         appMainCoroutineRule.resumeDispatcher()
-        MatcherAssert.assertThat(remindersListViewModel.showLoading.value, `is`(false))
+        assertThat(remindersListViewModel.showLoading.value, `is`(false))
     }
 
     private suspend fun saveReminder() {

@@ -20,7 +20,9 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.core.context.GlobalContext.stopKoin
+import org.robolectric.annotation.Config
 
+@Config(sdk = [29])
 @ExperimentalCoroutinesApi
 @RunWith(AndroidJUnit4::class)
 class SaveReminderViewModelTest {

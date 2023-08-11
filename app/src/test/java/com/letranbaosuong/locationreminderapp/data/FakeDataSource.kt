@@ -48,4 +48,8 @@ class FakeDataSource : ReminderDataSource {
 //        TODO("delete all the reminders")
         reminders.clear()
     }
+
+    fun setReturnError() {
+        shouldReturnError = true
+    }
 }
